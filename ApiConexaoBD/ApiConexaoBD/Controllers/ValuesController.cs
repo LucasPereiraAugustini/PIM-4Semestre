@@ -20,5 +20,11 @@ namespace ApiConexaoBD.Controllers
         {
             return _funcionarioRepositorio.GetFuncionarios;
         }
+
+        [HttpPost]
+        public void Post([FromBody] Funcionario funcionario)
+        { 
+            _funcionarioRepositorio.InserirFuncionario(funcionario);
+        }
     }
 }

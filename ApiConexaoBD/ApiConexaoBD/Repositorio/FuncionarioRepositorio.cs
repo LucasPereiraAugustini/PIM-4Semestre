@@ -19,5 +19,10 @@ namespace ApiConexaoBD.Repositorio
                 return _daoFuncionario.GetFuncionarios();
             }
         }
+
+        public void InserirFuncionario(Funcionario funcionario)
+        {
+            _daoFuncionario.InserFuncionario(funcionario);
+        }
     }
 }
