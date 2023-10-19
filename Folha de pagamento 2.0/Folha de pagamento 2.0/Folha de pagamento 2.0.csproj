@@ -47,12 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\ClassFuncionarios.cs" />
-    <Compile Include="Controller\ClassFuncionariosController.cs" />
-    <Compile Include="View\Funcionarios.cs">
+    <Compile Include="Controller\FuncionariosController.cs" />
+    <Compile Include="View\DadosFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Funcionarios.Designer.cs">
-      <DependentUpon>Funcionarios.cs</DependentUpon>
+    <Compile Include="View\DadosFuncionario.Designer.cs">
+      <DependentUpon>DadosFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DadosTrabalhista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DadosTrabalhista.Designer.cs">
+      <DependentUpon>DadosTrabalhista.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LogIn.cs">
       <SubType>Form</SubType>
@@ -68,8 +74,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\Funcionarios.resx">
-      <DependentUpon>Funcionarios.cs</DependentUpon>
+    <EmbeddedResource Include="View\DadosFuncionario.resx">
+      <DependentUpon>DadosFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DadosTrabalhista.resx">
+      <DependentUpon>DadosTrabalhista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>

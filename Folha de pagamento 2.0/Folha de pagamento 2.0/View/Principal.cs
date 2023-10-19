@@ -33,7 +33,7 @@ namespace Folha_de_pagamento_2._0
         private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Funcionarios funcionarios = new Funcionarios(1);
+            DadosFuncionario funcionarios = new DadosFuncionario(1);
             funcionarios.Show();
             
         }
@@ -41,7 +41,7 @@ namespace Folha_de_pagamento_2._0
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Funcionarios funcionarios = new Funcionarios(2);
+            DadosFuncionario funcionarios = new DadosFuncionario(2);
             funcionarios.Show();
         }
 
@@ -53,8 +53,13 @@ namespace Folha_de_pagamento_2._0
         {
 
             this.Hide();
-            Funcionarios funcionarios = new Funcionarios(3);
+            DadosFuncionario funcionarios = new DadosFuncionario(3);
             funcionarios.Show();
         }
-    }
+
+		private void calculadoraDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

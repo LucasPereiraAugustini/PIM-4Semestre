@@ -16,7 +16,5 @@ namespace Folha_de_pagamento_2._0
         public string telefone { get; set; }
         public string uf { get; set; }
         public string cidade { get; set; }
-
-
     }
 }
