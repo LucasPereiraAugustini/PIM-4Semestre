@@ -14,6 +14,7 @@ namespace Folha_de_pagamento_2._0
     public partial class DadosFuncionario : Form
     {
         private int funcao;
+        ClassFuncionarios classFuncionarios = new ClassFuncionarios();
 
         public DadosFuncionario(int tipo)
         {
@@ -25,10 +26,6 @@ namespace Folha_de_pagamento_2._0
                 btn_buscar.Enabled = false;
             }
         }
-
-        SqlConnection conn = null;
-        private string sql = @"Data Source=Leandro\SQLEXPRESS;Initial Catalog=teste;Integrated Security=True";
-        private string strsql = string.Empty;
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
@@ -42,7 +39,6 @@ namespace Folha_de_pagamento_2._0
 
         private void btn_aplicar_Click(object sender, EventArgs e)
         {
-            ClassFuncionarios classFuncionarios = new ClassFuncionarios();
             classFuncionarios.cpf = msk_cpf.Text;
             classFuncionarios.nome = tb_nome.Text;
             classFuncionarios.endereco = tb_endereço.Text;
@@ -51,7 +47,14 @@ namespace Folha_de_pagamento_2._0
             classFuncionarios.telefone = msk_telefone.Text;
             classFuncionarios.uf = tb_uf.Text;
             classFuncionarios.cidade = tb_cidade.Text;
-            
+            classFuncionarios.horastrabalho = Convert.ToInt16(tb_horastrabalho.Text);
+            classFuncionarios.pis = tb_pis.Text;
+            classFuncionarios.salariobase = Convert.ToDecimal(tb_salariobase.Text);
+            classFuncionarios.insalubridade = cbb_insalubridade.Text;
+            classFuncionarios.cargo = tb_cargo.Text;
+            classFuncionarios.admissao = msk_admissao.Text;
+            classFuncionarios.demissao = msk_demissao.Text;
+
             FuncionariosController classFuncionariosController = new FuncionariosController();
             if (funcao == 1)
             {
@@ -69,6 +72,9 @@ namespace Folha_de_pagamento_2._0
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
+            SqlConnection conn = null;
+            string sql = @"Data Source=DESKTOP-M71N3MS;Initial Catalog=DBClientes;Integrated Security=True";
+            string strsql = string.Empty;
             strsql = "select * from funcionario where CPF = @CPF";
             conn = new SqlConnection(sql);
 
@@ -99,6 +105,13 @@ namespace Folha_de_pagamento_2._0
                     msk_telefone.Text = Convert.ToString(dr["Telefone"]);
                     tb_uf.Text = Convert.ToString(dr["UF"]);
                     tb_cidade.Text = Convert.ToString(dr["Cidade"]);
+                    tb_horastrabalho.Text = Convert.ToString(dr["Horasdetrabalho"]);
+                    tb_pis.Text = Convert.ToString(dr["Pis"]);
+                    tb_salariobase.Text = Convert.ToString(dr["Salariobase"]);
+                    cbb_insalubridade.Text = Convert.ToString(dr["Insalubridade"]);
+                    tb_cargo.Text = Convert.ToString(dr["Cargo"]);
+                    msk_admissao.Text = Convert.ToString(dr["Dataadmissao"]);
+                    msk_demissao.Text = Convert.ToString(dr["Datademissao"]);
                 }
             }
             catch(Exception ex)
@@ -109,6 +122,18 @@ namespace Folha_de_pagamento_2._0
             finally
             {
                 conn.Close();
+            }
+        }
+
+        private void cb_periculosidade_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_periculosidade.Checked == true)
+            {
+                classFuncionarios.periculosidade = 1;
+            }
+            else if (cb_periculosidade.Checked == false)
+            {
+                classFuncionarios.periculosidade = 0;
             }
         }
     }

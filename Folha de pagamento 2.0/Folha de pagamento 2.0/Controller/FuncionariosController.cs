@@ -12,7 +12,7 @@ namespace Folha_de_pagamento_2._0
     public class FuncionariosController
     {
         SqlConnection conn = null;
-        private string sql = @"Data Source=Leandro\SQLEXPRESS;Initial Catalog=teste;Integrated Security=True";
+        private string sql = @"Data Source=DESKTOP-M71N3MS;Initial Catalog=DBClientes;Integrated Security=True";
         private string strsql = string.Empty;
         public void inserir(ClassFuncionarios funcionarios)
         {
@@ -30,16 +30,29 @@ namespace Folha_de_pagamento_2._0
             cmd.Parameters.Add("@UF", SqlDbType.VarChar).Value = funcionarios.uf;
             cmd.Parameters.Add("@Cidade", SqlDbType.VarChar).Value = funcionarios.cidade;
 
+            strsql = "insert into dadostrabalhista (Cargo, Salariobase, Horasdetrabalho, Pis, Periculosidade, Dataadmissao, Datademissao, CpfFunc) values (@Cargo, @Salariobase, @Horasdetrabalho, @Pis, @Periculosidade, @Dataadmissao, @Datademissao, @CpfFunc)";
+            SqlCommand cmd2 = new SqlCommand(strsql, conn);
+            cmd2.Parameters.Add("@Cargo", SqlDbType.VarChar).Value = funcionarios.cargo;
+            cmd2.Parameters.Add("@Salariobase", SqlDbType.Decimal).Value = funcionarios.salariobase;
+            cmd2.Parameters.Add("@Horasdetrabalho", SqlDbType.Int).Value = funcionarios.horastrabalho;
+            //cmd.Parameters.Add("@Insalubridade", SqlDbType.Int).Value = funcionarios.insalubridade;
+            cmd2.Parameters.Add("@Pis", SqlDbType.Int).Value = funcionarios.pis;
+            cmd2.Parameters.Add("@Periculosidade", SqlDbType.Bit).Value = funcionarios.periculosidade;
+            cmd2.Parameters.Add("@Dataadmissao", SqlDbType.VarChar).Value = funcionarios.admissao;
+            cmd2.Parameters.Add("@Datademissao", SqlDbType.VarChar).Value = funcionarios.demissao;
+            cmd2.Parameters.Add("@CpfFunc", SqlDbType.VarChar).Value = funcionarios.cpf;
+
             try
             {
                 conn.Open();
                 cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
                 MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso");
                 conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERRO! Usuário já existente!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message);
                 conn.Close();
             }
         }
@@ -60,11 +73,24 @@ namespace Folha_de_pagamento_2._0
             cmd.Parameters.Add("@UF", SqlDbType.VarChar).Value = funcionarios.uf;
             cmd.Parameters.Add("@Cidade", SqlDbType.VarChar).Value = funcionarios.cidade;
 
+            strsql = "insert into dadostrabalhista (Cargo, Salariobase, Horasdetrabalho, Insalubridade, Pis, Periculosidade, Dataadmissao, Datademissao, CpfFunc) values (@Cargo, @Salariobase, @Horasdetrabalho, @Insalubridade, @Pis, @Periculosidade, @Dataadmissao, @Datademissao, @CpfFunc)";
+            SqlCommand cmd2 = new SqlCommand(strsql, conn);
+            cmd2.Parameters.Add("@Cargo", SqlDbType.VarChar).Value = funcionarios.cargo;
+            cmd2.Parameters.Add("@Salariobase", SqlDbType.Decimal).Value = funcionarios.salariobase;
+            cmd2.Parameters.Add("@Horasdetrabalho", SqlDbType.Int).Value = funcionarios.horastrabalho;
+            cmd2.Parameters.Add("@Insalubridade", SqlDbType.VarChar).Value = funcionarios.insalubridade;
+            cmd2.Parameters.Add("@Pis", SqlDbType.Int).Value = funcionarios.pis;
+            cmd2.Parameters.Add("@Periculosidade", SqlDbType.Bit).Value = funcionarios.periculosidade;
+            cmd2.Parameters.Add("@Dataadmissao", SqlDbType.VarChar).Value = funcionarios.admissao;
+            cmd2.Parameters.Add("@Datademissao", SqlDbType.VarChar).Value = funcionarios.demissao;
+            cmd2.Parameters.Add("@CpfFunc", SqlDbType.VarChar).Value = funcionarios.cpf;
+
             try
             {
                 conn.Open();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Cadastro alterado com sucesso!", "Sucesso");
+                cmd2.ExecuteNonQuery();
+                MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso");
                 conn.Close();
             }
             catch (Exception ex)
@@ -77,7 +103,7 @@ namespace Folha_de_pagamento_2._0
 
         public void excluir(ClassFuncionarios funcionarios)
         {
-            strsql = "delete from funcionario where CPF = @CPF";
+            strsql = "delete from funcionario, dadostrabalhista using funcionario inner join dadostrabalhista where funcionario.Cpf = @CPF = dadostrabalista.CpfFunc = @CPF";
             conn = new SqlConnection(sql);
 
             SqlCommand cmd = new SqlCommand(strsql, conn);
@@ -97,5 +123,7 @@ namespace Folha_de_pagamento_2._0
                 conn.Close();
             }
         }
+        
     }
+
 }
