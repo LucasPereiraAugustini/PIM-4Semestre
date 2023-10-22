@@ -105,7 +105,7 @@
             this.tb_nome.Location = new System.Drawing.Point(259, 16);
             this.tb_nome.Name = "tb_nome";
             this.tb_nome.Size = new System.Drawing.Size(217, 26);
-            this.tb_nome.TabIndex = 3;
+            this.tb_nome.TabIndex = 2;
             // 
             // label3
             // 
@@ -123,7 +123,7 @@
             this.tb_endereço.Location = new System.Drawing.Point(137, 94);
             this.tb_endereço.Name = "tb_endereço";
             this.tb_endereço.Size = new System.Drawing.Size(339, 26);
-            this.tb_endereço.TabIndex = 3;
+            this.tb_endereço.TabIndex = 4;
             // 
             // label4
             // 
@@ -141,7 +141,7 @@
             this.tb_uf.Location = new System.Drawing.Point(377, 176);
             this.tb_uf.Name = "tb_uf";
             this.tb_uf.Size = new System.Drawing.Size(42, 26);
-            this.tb_uf.TabIndex = 5;
+            this.tb_uf.TabIndex = 7;
             // 
             // tb_bairro
             // 
@@ -149,7 +149,7 @@
             this.tb_bairro.Location = new System.Drawing.Point(560, 94);
             this.tb_bairro.Name = "tb_bairro";
             this.tb_bairro.Size = new System.Drawing.Size(120, 26);
-            this.tb_bairro.TabIndex = 6;
+            this.tb_bairro.TabIndex = 5;
             // 
             // label5
             // 
@@ -178,7 +178,7 @@
             this.msk_CEP.Mask = "99,999-999";
             this.msk_CEP.Name = "msk_CEP";
             this.msk_CEP.Size = new System.Drawing.Size(89, 26);
-            this.msk_CEP.TabIndex = 9;
+            this.msk_CEP.TabIndex = 8;
             // 
             // label7
             // 
@@ -197,14 +197,14 @@
             this.msk_telefone.Mask = "(99)99999,9999";
             this.msk_telefone.Name = "msk_telefone";
             this.msk_telefone.Size = new System.Drawing.Size(121, 26);
-            this.msk_telefone.TabIndex = 11;
+            this.msk_telefone.TabIndex = 3;
             // 
             // btn_aplicar
             // 
             this.btn_aplicar.Location = new System.Drawing.Point(189, 284);
             this.btn_aplicar.Name = "btn_aplicar";
             this.btn_aplicar.Size = new System.Drawing.Size(105, 23);
-            this.btn_aplicar.TabIndex = 12;
+            this.btn_aplicar.TabIndex = 9;
             this.btn_aplicar.Text = "Aplicar";
             this.btn_aplicar.UseVisualStyleBackColor = true;
             this.btn_aplicar.Click += new System.EventHandler(this.btn_aplicar_Click);
@@ -214,7 +214,7 @@
             this.btn_cancelar.Location = new System.Drawing.Point(461, 284);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(97, 23);
-            this.btn_cancelar.TabIndex = 15;
+            this.btn_cancelar.TabIndex = 10;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
@@ -224,7 +224,7 @@
             this.btn_buscar.Location = new System.Drawing.Point(583, 281);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(105, 23);
-            this.btn_buscar.TabIndex = 16;
+            this.btn_buscar.TabIndex = 9;
             this.btn_buscar.Text = "Buscar";
             this.btn_buscar.UseVisualStyleBackColor = true;
             this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
@@ -235,7 +235,7 @@
             this.tb_cidade.Location = new System.Drawing.Point(118, 174);
             this.tb_cidade.Name = "tb_cidade";
             this.tb_cidade.Size = new System.Drawing.Size(165, 26);
-            this.tb_cidade.TabIndex = 17;
+            this.tb_cidade.TabIndex = 6;
             // 
             // label8
             // 
@@ -321,7 +321,7 @@
             this.tb_salariobase.Location = new System.Drawing.Point(598, 24);
             this.tb_salariobase.Name = "tb_salariobase";
             this.tb_salariobase.Size = new System.Drawing.Size(123, 26);
-            this.tb_salariobase.TabIndex = 35;
+            this.tb_salariobase.TabIndex = 3;
             // 
             // label15
             // 
@@ -341,7 +341,7 @@
             this.tb_pis.Margin = new System.Windows.Forms.Padding(2);
             this.tb_pis.Name = "tb_pis";
             this.tb_pis.Size = new System.Drawing.Size(153, 26);
-            this.tb_pis.TabIndex = 33;
+            this.tb_pis.TabIndex = 2;
             // 
             // msk_demissao
             // 
@@ -351,7 +351,7 @@
             this.msk_demissao.Mask = "00/00/0000";
             this.msk_demissao.Name = "msk_demissao";
             this.msk_demissao.Size = new System.Drawing.Size(115, 26);
-            this.msk_demissao.TabIndex = 32;
+            this.msk_demissao.TabIndex = 8;
             this.msk_demissao.ValidatingType = typeof(System.DateTime);
             // 
             // label9
@@ -373,7 +373,7 @@
             this.msk_admissao.Mask = "00/00/0000";
             this.msk_admissao.Name = "msk_admissao";
             this.msk_admissao.Size = new System.Drawing.Size(110, 26);
-            this.msk_admissao.TabIndex = 30;
+            this.msk_admissao.TabIndex = 7;
             this.msk_admissao.ValidatingType = typeof(System.DateTime);
             // 
             // label10
@@ -405,7 +405,7 @@
             this.tb_cargo.Margin = new System.Windows.Forms.Padding(2);
             this.tb_cargo.Name = "tb_cargo";
             this.tb_cargo.Size = new System.Drawing.Size(134, 26);
-            this.tb_cargo.TabIndex = 27;
+            this.tb_cargo.TabIndex = 6;
             // 
             // cb_periculosidade
             // 
@@ -414,7 +414,7 @@
             this.cb_periculosidade.Location = new System.Drawing.Point(469, 122);
             this.cb_periculosidade.Name = "cb_periculosidade";
             this.cb_periculosidade.Size = new System.Drawing.Size(131, 24);
-            this.cb_periculosidade.TabIndex = 26;
+            this.cb_periculosidade.TabIndex = 5;
             this.cb_periculosidade.Text = "Periculosidade";
             this.cb_periculosidade.UseVisualStyleBackColor = true;
             this.cb_periculosidade.CheckedChanged += new System.EventHandler(this.cb_periculosidade_CheckedChanged);
@@ -431,7 +431,7 @@
             this.cbb_insalubridade.Location = new System.Drawing.Point(173, 122);
             this.cbb_insalubridade.Name = "cbb_insalubridade";
             this.cbb_insalubridade.Size = new System.Drawing.Size(121, 28);
-            this.cbb_insalubridade.TabIndex = 25;
+            this.cbb_insalubridade.TabIndex = 4;
             // 
             // label12
             // 
@@ -459,7 +459,7 @@
             this.tb_horastrabalho.Location = new System.Drawing.Point(140, 24);
             this.tb_horastrabalho.Name = "tb_horastrabalho";
             this.tb_horastrabalho.Size = new System.Drawing.Size(116, 26);
-            this.tb_horastrabalho.TabIndex = 21;
+            this.tb_horastrabalho.TabIndex = 1;
             // 
             // label14
             // 

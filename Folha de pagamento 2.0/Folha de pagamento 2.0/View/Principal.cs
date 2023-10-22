@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Folha_de_pagamento_2._0.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,7 +36,6 @@ namespace Folha_de_pagamento_2._0
             this.Hide();
             DadosFuncionario funcionarios = new DadosFuncionario(1);
             funcionarios.Show();
-            
         }
 
         private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -43,10 +43,6 @@ namespace Folha_de_pagamento_2._0
             this.Hide();
             DadosFuncionario funcionarios = new DadosFuncionario(2);
             funcionarios.Show();
-        }
-
-        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
         }
 
         private void excluirToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -59,7 +55,19 @@ namespace Folha_de_pagamento_2._0
 
 		private void calculadoraDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+            this.Hide();
+            CalculoFolha calculoFolha = new CalculoFolha();
+            calculoFolha.Show();
+        }
 
-		}
-	}
+        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void funçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

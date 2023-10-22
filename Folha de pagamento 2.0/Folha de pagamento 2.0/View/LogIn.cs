@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +18,6 @@ namespace Folha_de_pagamento_2._0
         public LogIn()
         {
             InitializeComponent();
-
             tb_usuario.Select();
             btn_criar.Hide();
             tb_confirmar.Hide();
@@ -25,7 +25,6 @@ namespace Folha_de_pagamento_2._0
         }
         int verificacao()
         {
-            
             if(tb_usuario.Text == "" || tb_senha.Text == "")
             {
                 MessageBox.Show("Digite um usuário e senha!");
@@ -37,6 +36,7 @@ namespace Folha_de_pagamento_2._0
                 return 1;
             }
         }
+
         private void btn_sair_Click(object sender, EventArgs e)
         {
             Application.Exit();

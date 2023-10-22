@@ -21,10 +21,6 @@ namespace Folha_de_pagamento_2._0
             InitializeComponent();
             msk_cpf.Select();
             funcao = tipo;
-            if(funcao == 1)
-            {
-                btn_buscar.Enabled = false;
-            }
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -50,7 +46,7 @@ namespace Folha_de_pagamento_2._0
             classFuncionarios.horastrabalho = Convert.ToInt16(tb_horastrabalho.Text);
             classFuncionarios.pis = tb_pis.Text;
             classFuncionarios.salariobase = Convert.ToDecimal(tb_salariobase.Text);
-            classFuncionarios.insalubridade = cbb_insalubridade.Text;
+            classFuncionarios.insalubridade = cbb_insalubridade.ValueMember;
             classFuncionarios.cargo = tb_cargo.Text;
             classFuncionarios.admissao = msk_admissao.Text;
             classFuncionarios.demissao = msk_demissao.Text;
@@ -75,13 +71,13 @@ namespace Folha_de_pagamento_2._0
             SqlConnection conn = null;
             string sql = @"Data Source=DESKTOP-M71N3MS;Initial Catalog=DBClientes;Integrated Security=True";
             string strsql = string.Empty;
-            strsql = "select * from funcionario where CPF = @CPF";
+            strsql = "select * from funcionario as f inner join dadostrabalhista as d on f.CPF = d.CpfFunc where CPF=@CPF";
             conn = new SqlConnection(sql);
 
             SqlCommand cmd = new SqlCommand(strsql, conn);
 
             cmd.Parameters.Add(new SqlParameter("@CPF", msk_cpf.Text));
-
+            
             try
             {
                 if(msk_cpf.Text == "")
@@ -90,8 +86,8 @@ namespace Folha_de_pagamento_2._0
                 }
                 conn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
-
-                if(dr.HasRows == false)
+               
+                if (dr.HasRows == false)
                 {
                     throw new Exception("CPF Não cadastrado!");
                 }
@@ -108,7 +104,7 @@ namespace Folha_de_pagamento_2._0
                     tb_horastrabalho.Text = Convert.ToString(dr["Horasdetrabalho"]);
                     tb_pis.Text = Convert.ToString(dr["Pis"]);
                     tb_salariobase.Text = Convert.ToString(dr["Salariobase"]);
-                    cbb_insalubridade.Text = Convert.ToString(dr["Insalubridade"]);
+                    cbb_insalubridade.ValueMember = Convert.ToString(dr["Insalubridade"]);
                     tb_cargo.Text = Convert.ToString(dr["Cargo"]);
                     msk_admissao.Text = Convert.ToString(dr["Dataadmissao"]);
                     msk_demissao.Text = Convert.ToString(dr["Datademissao"]);
