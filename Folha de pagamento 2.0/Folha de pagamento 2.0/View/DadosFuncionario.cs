@@ -108,6 +108,15 @@ namespace Folha_de_pagamento_2._0
                     tb_cargo.Text = Convert.ToString(dr["Cargo"]);
                     msk_admissao.Text = Convert.ToString(dr["Dataadmissao"]);
                     msk_demissao.Text = Convert.ToString(dr["Datademissao"]);
+                    
+                    if (Convert.ToString(dr["Periculosidade"]) == "True")
+                    {
+                        cb_periculosidade.Checked = true;
+                    }
+                    else
+                    {
+                        cb_periculosidade.Checked = false;
+                    }
                 }
             }
             catch(Exception ex)

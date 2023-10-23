@@ -21,7 +21,7 @@ namespace Folha_de_pagamento_2._0
             tb_usuario.Select();
             btn_criar.Hide();
             tb_confirmar.Hide();
-            lb_confirmar.Hide();
+            lb_confirmar.Hide(); 
         }
         int verificacao()
         {

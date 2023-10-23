@@ -49,7 +49,6 @@
     <Compile Include="Model\ClassCalculoFolhha.cs" />
     <Compile Include="Model\ClassFuncionarios.cs" />
     <Compile Include="Controller\FuncionariosController.cs" />
-    <Compile Include="msk_cpf\Text.cs" />
     <Compile Include="View\CalculoFolha.cs">
       <SubType>Form</SubType>
     </Compile>

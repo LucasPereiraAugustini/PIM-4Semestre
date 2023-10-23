@@ -10,9 +10,9 @@ namespace Folha_de_pagamento_2._0.Model
     {
         public string Cpf { get; set; } 
         public string Nome { get; set;}
-        public int HorasTrab {  get; set;}
-        public bool Periculosidade { get; set;}   
-        public decimal SalarioBase { get; set; }  
+        public string HorasTrab {  get; set;}
+        public string Periculosidade { get; set;}   
+        public string SalarioBase { get; set; }  
         public decimal SalarioLiqui { get; set; } 
         public decimal DescINSS { get; set;}  
         public decimal DescIRRF { get; set;}  

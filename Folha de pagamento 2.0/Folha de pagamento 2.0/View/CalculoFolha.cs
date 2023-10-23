@@ -15,12 +15,18 @@ namespace Folha_de_pagamento_2._0.View
         }
 
         ClassCalculoFolhha classCalculoFolhha = new ClassCalculoFolhha();
-
         private void calculoFolha()
         {
+            decimal salarioBase = Convert.ToDecimal(classCalculoFolhha.SalarioBase);
+            decimal descINSS = 0;
+            if (salarioBase <= 1320)
+            {
+                descINSS = (salarioBase * 75) / 100;
+            }
 
+            MessageBox.Show(Convert.ToString(salarioBase));
+            MessageBox.Show(Convert.ToString(descINSS));
         }
-
         private void btn_buscar_Click_1(object sender, EventArgs e)
         {
             SqlConnection conn = null;
@@ -52,9 +58,9 @@ namespace Folha_de_pagamento_2._0.View
                     tb_nome.Text = Convert.ToString(dr["Nome"]);
                     classCalculoFolhha.Cpf = Convert.ToString(dr["CPF"]);
                     classCalculoFolhha.Nome = Convert.ToString(dr["Nome"]);
-                    classCalculoFolhha.HorasTrab = Convert.ToInt16(dr["Horasdetrabalho"]);
-                    classCalculoFolhha.SalarioBase = Convert.ToDecimal(dr["Salariobase"]);
-                    classCalculoFolhha.Periculosidade = Convert.ToBoolean(dr["Periculosidade"]);
+                    classCalculoFolhha.HorasTrab = Convert.ToString(dr["Horasdetrabalho"]);
+                    classCalculoFolhha.SalarioBase = Convert.ToString(dr["Salariobase"]);
+                    classCalculoFolhha.Periculosidade = Convert.ToString(dr["Periculosidade"]);
                 }
             }
             catch (Exception ex)
@@ -66,8 +72,6 @@ namespace Folha_de_pagamento_2._0.View
             {
                 conn.Close();
             }
-
-
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
