@@ -35,6 +35,7 @@ namespace Folha_de_pagamento_2._0
 
         private void btn_aplicar_Click(object sender, EventArgs e)
         {
+
             classFuncionarios.cpf = msk_cpf.Text;
             classFuncionarios.nome = tb_nome.Text;
             classFuncionarios.endereco = tb_endereço.Text;
@@ -43,33 +44,50 @@ namespace Folha_de_pagamento_2._0
             classFuncionarios.telefone = msk_telefone.Text;
             classFuncionarios.uf = tb_uf.Text;
             classFuncionarios.cidade = tb_cidade.Text;
+            classFuncionarios.cargo = tb_cargo.Text;
             classFuncionarios.horastrabalho = Convert.ToInt16(tb_horastrabalho.Text);
             classFuncionarios.pis = tb_pis.Text;
             classFuncionarios.salariobase = Convert.ToDecimal(tb_salariobase.Text);
-            classFuncionarios.insalubridade = cbb_insalubridade.ValueMember;
-            classFuncionarios.cargo = tb_cargo.Text;
-            classFuncionarios.admissao = msk_admissao.Text;
-            classFuncionarios.demissao = msk_demissao.Text;
-
-            FuncionariosController classFuncionariosController = new FuncionariosController();
-            if (funcao == 1)
+            classFuncionarios.insalubridade = Convert.ToString(cbb_insalubridade.SelectedIndex);
+            
+            if (cbb_insalubridade.SelectedIndex == 0)
             {
-                classFuncionariosController.inserir(classFuncionarios);
-			}
-			else if (funcao == 2)
+                classFuncionarios.insalubridade = "0";
+            }
+            else if (cbb_insalubridade.SelectedIndex == 1)
             {
-                classFuncionariosController.editar(classFuncionarios);
-			}
+                classFuncionarios.insalubridade = "0.1";
+            }
+            else if (cbb_insalubridade.SelectedIndex == 2)
+            {
+                classFuncionarios.insalubridade = "0.2";
+            }
             else
             {
-                classFuncionariosController.excluir(classFuncionarios);
-			}
-        }
+                classFuncionarios.insalubridade = "0.4";
+            }
+			classFuncionarios.admissao = msk_admissao.Text;
+			classFuncionarios.demissao = msk_demissao.Text;
 
-        private void btn_buscar_Click(object sender, EventArgs e)
+			FuncionariosController classFuncionariosController = new FuncionariosController();
+			if (funcao == 1)
+			{
+				classFuncionariosController.inserir(classFuncionarios);
+			}
+			else if (funcao == 2)
+			{
+				classFuncionariosController.editar(classFuncionarios);
+			}
+			else
+			{
+				classFuncionariosController.excluir(classFuncionarios);
+			}
+		}
+
+		private void btn_buscar_Click(object sender, EventArgs e)
         {
             SqlConnection conn = null;
-            string sql = @"Data Source=DESKTOP-M71N3MS;Initial Catalog=DBClientes;Integrated Security=True";
+            string sql = @"Data Source=Leandro\SQLEXPRESS;Initial Catalog=teste;Integrated Security=True";
             string strsql = string.Empty;
             strsql = "select * from funcionario as f inner join dadostrabalhista as d on f.CPF = d.CpfFunc where CPF=@CPF";
             conn = new SqlConnection(sql);

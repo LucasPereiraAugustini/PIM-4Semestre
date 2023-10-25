@@ -12,7 +12,7 @@ namespace Folha_de_pagamento_2._0
     public class FuncionariosController
     {
         SqlConnection conn = null;
-        private readonly string sql = @"Data Source=DESKTOP-M71N3MS;Initial Catalog=DBClientes;Integrated Security=True";
+        private readonly string sql = @"Data Source=Leandro\SQLEXPRESS;Initial Catalog=teste;Integrated Security=True";
         private string strsql = string.Empty;
         public void inserir(ClassFuncionarios funcionarios)
         {
@@ -30,7 +30,8 @@ namespace Folha_de_pagamento_2._0
             cmd.Parameters.Add("@UF", SqlDbType.VarChar).Value = funcionarios.uf;
             cmd.Parameters.Add("@Cidade", SqlDbType.VarChar).Value = funcionarios.cidade;
 
-            strsql = "insert into dadostrabalhista (Cargo, Salariobase, Horasdetrabalho, Pis, Periculosidade, Dataadmissao, Datademissao, CpfFunc) values (@Cargo, @Salariobase, @Horasdetrabalho, @Pis, @Periculosidade, @Dataadmissao, @Datademissao, @CpfFunc)";
+            strsql = "insert into dadostrabalhista (Cargo, Salariobase, Horasdetrabalho, Insalubridade, Pis, Periculosidade, Dataadmissao, Datademissao, CpfFunc) " +
+                                           "values (@Cargo, @Salariobase, @Horasdetrabalho, @Insalubridade, @Pis, @Periculosidade, @Dataadmissao, @Datademissao, @CpfFunc)";
             SqlCommand cmd2 = new SqlCommand(strsql, conn);
             cmd2.Parameters.Add("@Cargo", SqlDbType.VarChar).Value = funcionarios.cargo;
             cmd2.Parameters.Add("@Salariobase", SqlDbType.Decimal).Value = funcionarios.salariobase;
@@ -52,7 +53,7 @@ namespace Folha_de_pagamento_2._0
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Funcionário ja está cadastrado!", "Ops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Ops", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 conn.Close();
             }
         }

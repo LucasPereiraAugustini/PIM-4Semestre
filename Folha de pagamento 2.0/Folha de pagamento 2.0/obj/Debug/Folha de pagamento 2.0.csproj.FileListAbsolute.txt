@@ -23,7 +23,6 @@ C:\Users\Leandro\Downloads\PIM-4Semestre-main\PIM-4Semestre-main\Folha de pagame
 C:\Users\Leandro\Downloads\PIM-4Semestre-main\PIM-4Semestre-main\Folha de pagamento 2.0\Folha de pagamento 2.0\obj\Debug\Folha de pagamento 2.0.exe
 C:\Users\Leandro\Downloads\PIM-4Semestre-main\PIM-4Semestre-main\Folha de pagamento 2.0\Folha de pagamento 2.0\obj\Debug\Folha de pagamento 2.0.pdb
 C:\Users\Leandro\Downloads\PIM-4Semestre-main\PIM-4Semestre-main\Folha de pagamento 2.0\Folha de pagamento 2.0\obj\Debug\Folha_de_pagamento_2._0.DadosFuncionario.resources
-C:\Users\Leandro\Downloads\PIM-4Semestre-main\PIM-4Semestre-main\Folha de pagamento 2.0\Folha de pagamento 2.0\obj\Debug\Folha_de_pagamento_2._0.View.DadosTrabalhista.resources
 C:\Users\vinic\Desktop\PIM-4Semestre-main\Folha de pagamento 2.0\Folha de pagamento 2.0\bin\Debug\Folha de pagamento 2.0.exe.config
 C:\Users\vinic\Desktop\PIM-4Semestre-main\Folha de pagamento 2.0\Folha de pagamento 2.0\bin\Debug\Folha de pagamento 2.0.exe
 C:\Users\vinic\Desktop\PIM-4Semestre-main\Folha de pagamento 2.0\Folha de pagamento 2.0\bin\Debug\Folha de pagamento 2.0.pdb
@@ -63,3 +62,4 @@ C:\Users\vinic\Desktop\PIM-4Semestre\Folha de pagamento 2.0\Folha de pagamento 2
 C:\Users\vinic\Desktop\PIM-4Semestre\Folha de pagamento 2.0\Folha de pagamento 2.0\obj\Debug\Folha de pagamento 2.0.exe
 C:\Users\vinic\Desktop\PIM-4Semestre\Folha de pagamento 2.0\Folha de pagamento 2.0\obj\Debug\Folha de pagamento 2.0.pdb
 D:\Downloads\UNIP-Pim-4-Semestre-main\UNIP-Pim-4-Semestre-main\Folha de pagamento 2.0\Folha de pagamento 2.0\obj\Debug\Folha_de_pagamento_2._0.View.CalculoFolha.resources
+C:\Users\Leandro\Downloads\PIM-4Semestre-main\PIM-4Semestre-main\Folha de pagamento 2.0\Folha de pagamento 2.0\obj\Debug\Folha_de_pagamento_2._0.View.CalculoFolha.resources

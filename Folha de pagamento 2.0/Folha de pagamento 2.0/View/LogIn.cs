@@ -14,7 +14,7 @@ namespace Folha_de_pagamento_2._0
 {
     public partial class LogIn : Form
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-M71N3MS;Initial Catalog=DBClientes;Integrated Security=True");
+        SqlConnection conn = new SqlConnection(@"Data Source=Leandro\SQLEXPRESS;Initial Catalog=teste;Integrated Security=True");
         public LogIn()
         {
             InitializeComponent();
