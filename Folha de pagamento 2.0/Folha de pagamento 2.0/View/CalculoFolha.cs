@@ -17,6 +17,10 @@ namespace Folha_de_pagamento_2._0.View
 		}
 
 		ClassCalculoFolhha classCalculoFolhha = new ClassCalculoFolhha();
+
+		SqlConnection conn = null;
+		string sql = @"Data Source=Leandro\SQLEXPRESS;Initial Catalog=teste;Integrated Security=True";
+		string strsql = string.Empty;
 		private void calculoFolha()
 		{
 			double salarioBruto = Convert.ToDouble(classCalculoFolhha.SalarioBase);
@@ -97,32 +101,32 @@ namespace Folha_de_pagamento_2._0.View
 			classCalculoFolhha.DescINSS = descINSS;
 			classCalculoFolhha.DescIRRF = descIRRF;
 			classCalculoFolhha.SalarioLiqui = (salarioBruto + classCalculoFolhha.AddInsalubridade + classCalculoFolhha.AddPericulosidade) - (descINSS + descIRRF);
+			
+			salvarDadosFolha();
 		}
 
-		SqlConnection conn = null;
-		string sql = @"Data Source=Leandro\SQLEXPRESS;Initial Catalog=teste;Integrated Security=True";
-		string strsql = string.Empty;
 		private void salvarDadosFolha()
 		{
-			strsql = "insert into funcionario (CPF, Nome, Endereço, Bairro, CEP, Telefone, UF, Cidade) values (@CPF, @Nome, @Endereço, @Bairro, @CEP, @Telefone, @UF, @Cidade)";
+			strsql = "insert into dadosFolha (SalarioBase, SalarioLiqui, DescINSS, DescIRRF, AddPericulosidade, AddInsalubridade, HorasTrab, CpfFunc) " +
+									  "values (@SalarioBase, @SalarioLiqui, @DescINSS, @DescIRRF, @AddPericulosidade, @AddInsalubridade, @HorasTrab, @CpfFunc)";
 			conn = new SqlConnection(sql);
 
 			SqlCommand cmd = new SqlCommand(strsql, conn);
 
-			cmd.Parameters.Add("@CPF", SqlDbType.VarChar).Value = funcionarios.cpf;
-			cmd.Parameters.Add("@Nome", SqlDbType.VarChar).Value = funcionarios.nome;
-			cmd.Parameters.Add("@Endereço", SqlDbType.VarChar).Value = funcionarios.endereco;
-			cmd.Parameters.Add("@Bairro", SqlDbType.VarChar).Value = funcionarios.bairro;
-			cmd.Parameters.Add("@CEP", SqlDbType.VarChar).Value = funcionarios.cep;
-			cmd.Parameters.Add("@Telefone", SqlDbType.VarChar).Value = funcionarios.telefone;
-			cmd.Parameters.Add("@UF", SqlDbType.VarChar).Value = funcionarios.uf;
-			cmd.Parameters.Add("@Cidade", SqlDbType.VarChar).Value = funcionarios.cidade;
+			cmd.Parameters.Add("@SalarioBase", SqlDbType.VarChar).Value = classCalculoFolhha.SalarioBase;
+			cmd.Parameters.Add("@SalarioLiqui", SqlDbType.VarChar).Value = classCalculoFolhha.SalarioLiqui;
+			cmd.Parameters.Add("@DescINSS", SqlDbType.VarChar).Value = classCalculoFolhha.DescINSS;
+			cmd.Parameters.Add("@DescIRRF", SqlDbType.VarChar).Value = classCalculoFolhha.DescIRRF;
+			cmd.Parameters.Add("@AddPericulosidade", SqlDbType.VarChar).Value = classCalculoFolhha.AddPericulosidade;
+			cmd.Parameters.Add("@AddInsalubridade", SqlDbType.VarChar).Value = classCalculoFolhha.AddInsalubridade;
+			cmd.Parameters.Add("@HorasTrab", SqlDbType.VarChar).Value = classCalculoFolhha.HorasTrab;
+			cmd.Parameters.Add("@CpfFunc", SqlDbType.VarChar).Value = classCalculoFolhha.Cpf;
 
 			try
 			{
 				conn.Open();
 				cmd.ExecuteNonQuery();
-				MessageBox.Show("Cadastro realizado com sucesso!", "Sucesso");
+				MessageBox.Show("Calculo realizado com sucesso!", "Sucesso");
 				conn.Close();
 			}
 			catch (Exception ex)
@@ -190,6 +194,22 @@ namespace Folha_de_pagamento_2._0.View
 		private void btn_calcular_Click(object sender, EventArgs e)
 		{
             calculoFolha();
+		}
+
+		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+		}
+
+		private void btn_relatorio_Click(object sender, EventArgs e)
+		{
+			conn.Open();
+			SqlCommand cmd = new SqlCommand("Select HorasTrab, SalarioBase, SalarioLiqui, DescINSS, DescIRRF, AddPericulosidade, AddInsalubridade from dadosFolha", conn);
+			SqlDataAdapter da = new SqlDataAdapter(cmd);
+			DataTable dt = new DataTable();
+			da.Fill(dt);
+			dataGridView1.DataSource = dt;
+			conn.Close();
 		}
 	}
 }

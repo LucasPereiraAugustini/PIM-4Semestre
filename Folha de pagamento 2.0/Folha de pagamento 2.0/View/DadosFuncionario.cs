@@ -35,7 +35,6 @@ namespace Folha_de_pagamento_2._0
 
         private void btn_aplicar_Click(object sender, EventArgs e)
         {
-
             classFuncionarios.cpf = msk_cpf.Text;
             classFuncionarios.nome = tb_nome.Text;
             classFuncionarios.endereco = tb_endereço.Text;
