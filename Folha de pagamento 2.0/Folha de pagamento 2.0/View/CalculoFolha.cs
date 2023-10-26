@@ -169,7 +169,7 @@ namespace Folha_de_pagamento_2._0.View
                     classCalculoFolhha.Periculosidade = Convert.ToString(dr["Periculosidade"]);
 					classCalculoFolhha.Insalubridade = Convert.ToDouble(dr["Insalubridade"]);
                 }
-            }
+			}
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -179,7 +179,15 @@ namespace Folha_de_pagamento_2._0.View
             {
                 conn.Close();
             }
-        }
+
+			conn.Open();
+			SqlCommand cmd2 = new SqlCommand("Select HorasTrab, SalarioBase, SalarioLiqui, DescINSS, DescIRRF, AddPericulosidade, AddInsalubridade from dadosFolha", conn);
+			SqlDataAdapter da = new SqlDataAdapter(cmd2);
+			DataTable dt = new DataTable();
+			da.Fill(dt);
+			dataGridView1.DataSource = dt;
+			conn.Close();
+		}
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
@@ -199,17 +207,6 @@ namespace Folha_de_pagamento_2._0.View
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
-		}
-
-		private void btn_relatorio_Click(object sender, EventArgs e)
-		{
-			conn.Open();
-			SqlCommand cmd = new SqlCommand("Select HorasTrab, SalarioBase, SalarioLiqui, DescINSS, DescIRRF, AddPericulosidade, AddInsalubridade from dadosFolha", conn);
-			SqlDataAdapter da = new SqlDataAdapter(cmd);
-			DataTable dt = new DataTable();
-			da.Fill(dt);
-			dataGridView1.DataSource = dt;
-			conn.Close();
 		}
 	}
 }
